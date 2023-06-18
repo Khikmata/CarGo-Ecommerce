@@ -39,8 +39,8 @@ export const manufacturers = [
   'Tesla',
   'Toyota',
   'Volkswagen',
-  'Volvo',
-]
+  'Volvo'
+];
 
 export const yearsOfProduction = [
   { title: 'Year', value: '' },
@@ -52,23 +52,23 @@ export const yearsOfProduction = [
   { title: '2020', value: '2020' },
   { title: '2021', value: '2021' },
   { title: '2022', value: '2022' },
-  { title: '2023', value: '2023' },
-]
+  { title: '2023', value: '2023' }
+];
 
 export const fuels = [
   {
     title: 'Fuel',
-    value: '',
+    value: ''
   },
   {
     title: 'Gas',
-    value: 'Gas',
+    value: 'Gas'
   },
   {
     title: 'Electricity',
-    value: 'Electricity',
-  },
-]
+    value: 'Electricity'
+  }
+];
 
 export const footerLinks = [
   {
@@ -77,8 +77,8 @@ export const footerLinks = [
       { title: 'How it works', url: '/' },
       { title: 'Featured', url: '/' },
       { title: 'Partnership', url: '/' },
-      { title: 'Bussiness Relation', url: '/' },
-    ],
+      { title: 'Bussiness Relation', url: '/' }
+    ]
   },
   {
     title: 'Company',
@@ -86,8 +86,8 @@ export const footerLinks = [
       { title: 'Events', url: '/' },
       { title: 'Blog', url: '/' },
       { title: 'Podcast', url: '/' },
-      { title: 'Invite a friend', url: '/' },
-    ],
+      { title: 'Invite a friend', url: '/' }
+    ]
   },
   {
     title: 'Socials',
@@ -95,7 +95,7 @@ export const footerLinks = [
       { title: 'Discord', url: '/' },
       { title: 'Instagram', url: '/' },
       { title: 'Twitter', url: '/' },
-      { title: 'Facebook', url: '/' },
-    ],
-  },
-]
+      { title: 'Facebook', url: '/' }
+    ]
+  }
+];

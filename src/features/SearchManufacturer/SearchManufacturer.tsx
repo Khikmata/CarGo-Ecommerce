@@ -1,26 +1,29 @@
-'use client'
+'use client';
 
-import { SearchInput, SearchManufacturerDropdown } from '@/entities'
-import { manufacturers } from '@/shared/constants'
-import { Combobox } from '@headlessui/react'
-import React, { useState } from 'react'
-import { ManufacturerTransition } from './helpers/SearchManufacturerTransition'
-import carLogo from '@images/car-logo.svg'
+import { SearchInput, SearchManufacturerDropdown } from '@/entities';
+import { manufacturers } from '@/shared/constants';
+import { Combobox } from '@headlessui/react';
+import React, { useState } from 'react';
+import { ManufacturerTransition } from './helpers/SearchManufacturerTransition';
+import carLogo from '@images/car-logo.svg';
 interface ISearchManufacturerProps {
-  manufacturer: string
-  setManufacturer: (manufacturer: string) => void
+  manufacturer: string;
+  setManufacturer: (manufacturer: string) => void;
 }
 
-export const SearchManufacturer: React.FC<ISearchManufacturerProps> = ({ manufacturer, setManufacturer }) => {
-  const [query, setQuery] = useState<string>('')
+export const SearchManufacturer: React.FC<ISearchManufacturerProps> = ({
+  manufacturer,
+  setManufacturer
+}) => {
+  const [query, setQuery] = useState<string>('');
 
   const handleComboboxInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value)
-  }
+    setQuery(e.target.value);
+  };
 
   const resetValue = () => {
-    setQuery('')
-  }
+    setQuery('');
+  };
 
   return (
     <div className={'search-manufacturer'}>
@@ -33,10 +36,13 @@ export const SearchManufacturer: React.FC<ISearchManufacturerProps> = ({ manufac
             styles="search-manufacturer__input"
           />
           <ManufacturerTransition resetValue={resetValue}>
-            <SearchManufacturerDropdown manufacturers={manufacturers} query={query} />
+            <SearchManufacturerDropdown
+              manufacturers={manufacturers}
+              query={query}
+            />
           </ManufacturerTransition>
         </div>
       </Combobox>
     </div>
-  )
-}
+  );
+};

@@ -217,3 +217,30 @@
   @apply cursor-default select-none py-2 pl-10 pr-4;
 }
 /* END: search manufacturer styles */
+
+.spinner-container{
+ width: 100vw;
+ height: 100vh;
+}
+
+.spinner {
+  position: absolute;
+	width: 128px;
+	height: 128px;
+	border: 8px solid;
+	border-color: #0059ff80 transparent #0059ff80 transparent;
+	border-radius: 50%;
+	animation: spin-anim 1.2s linear infinite;
+	top: 40%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin-anim {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

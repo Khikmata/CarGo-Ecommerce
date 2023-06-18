@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { FilterDropdown } from '@/features'
-import { fuels, yearsOfProduction } from '@/shared/constants'
+import { FilterDropdown } from '@/features';
+import { fuels, yearsOfProduction } from '@/shared/constants';
 
 export const Filter = () => {
   return (
@@ -9,5 +9,5 @@ export const Filter = () => {
       <FilterDropdown title="fuel" options={fuels} />
       <FilterDropdown title="year" options={yearsOfProduction} />
     </div>
-  )
-}
+  );
+};

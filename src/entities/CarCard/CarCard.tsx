@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { Button, CarCostBlock, CarDetails, CarMetricsSection } from '@/shared'
-import { getCarImage } from '@/shared/API/fetchCars'
+import { Button, CarCostBlock, CarDetails, CarMetricsSection } from '@/shared';
+import { getCarImage } from '@/shared/API/fetchCars';
 
-import { ICar } from '@/shared/types'
-import rightIcon from '@images/right-arrow.svg'
-import { useState } from 'react'
+import { ICar } from '@/shared/types';
+import rightIcon from '@images/right-arrow.svg';
+import { useState } from 'react';
 
 interface CarCardProps {
-  car: ICar
+  car: ICar;
 }
 
 export const CarCard = ({ car }: CarCardProps) => {
@@ -24,14 +24,14 @@ export const CarCard = ({ car }: CarCardProps) => {
     model,
     transmition,
     year,
-    class: carClass,
-  } = car
+    class: carClass
+  } = car;
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleCarDetailsModal = () => {
-    setIsOpen((state) => (state = !state))
-  }
+    setIsOpen((state) => (state = !state));
+  };
 
   return (
     <div className="car-card group">
@@ -42,7 +42,13 @@ export const CarCard = ({ car }: CarCardProps) => {
       </div>
       <CarCostBlock city_mpg={car.city_mpg} year={car.year} />
       <div className="relative w-full my-3 object-fit">
-        <img src={`${getCarImage(car)}`} alt="car image" className="object-fit" />
+        <img
+          src={`${getCarImage(car)}`}
+          alt="car image"
+          className="object-fit"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div className="relative flex w-full mt-2">
         <CarMetricsSection car={car} />
@@ -59,7 +65,11 @@ export const CarCard = ({ car }: CarCardProps) => {
           />
         </div>
       </div>
-      <CarDetails isOpen={isOpen} handleCarDetailsModal={handleCarDetailsModal} car={car} />
+      <CarDetails
+        isOpen={isOpen}
+        handleCarDetailsModal={handleCarDetailsModal}
+        car={car}
+      />
     </div>
-  )
-}
+  );
+};

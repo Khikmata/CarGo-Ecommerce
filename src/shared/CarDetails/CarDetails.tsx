@@ -1,23 +1,31 @@
-'use client'
+'use client';
 
-import { Dialog, Transition } from '@headlessui/react'
-import closeIcon from '@images/close.svg'
-import Image from 'next/image'
-import React from 'react'
-import { getCarImage } from '../API/fetchCars'
-import { Button } from '../Button/Button'
-import { ICar } from '../types'
+import { Dialog, Transition } from '@headlessui/react';
+import closeIcon from '@images/close.svg';
+import Image from 'next/image';
+import React from 'react';
+import { getCarImage } from '../API/fetchCars';
+import { Button } from '../Button/Button';
+import { ICar } from '../types';
 
 interface CarDetailsProps {
-  car: ICar
-  handleCarDetailsModal: () => void
-  isOpen: boolean
+  car: ICar;
+  handleCarDetailsModal: () => void;
+  isOpen: boolean;
 }
 
-export const CarDetails: React.FC<CarDetailsProps> = ({ car, handleCarDetailsModal, isOpen }) => {
+export const CarDetails: React.FC<CarDetailsProps> = ({
+  car,
+  handleCarDetailsModal,
+  isOpen
+}) => {
   return (
     <Transition appear show={isOpen} as="div">
-      <Dialog as="div" className={'relative z-10'} onClose={handleCarDetailsModal}>
+      <Dialog
+        as="div"
+        className={'relative z-10'}
+        onClose={handleCarDetailsModal}
+      >
         <Transition.Child
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -50,17 +58,39 @@ export const CarDetails: React.FC<CarDetailsProps> = ({ car, handleCarDetailsMod
                 />
                 <div className="flex-1 flex flex-col gap-3">
                   <div className="car-details__main-image">
-                    <img src={getCarImage(car, 'angle')} alt="car image" className="object-fit" />
+                    <img
+                      src={getCarImage(car, 'angle')}
+                      alt="car image"
+                      className="object-fit"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <div className="gap-3 flex">
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                      <img src={getCarImage(car, '29')} alt="car image" className="object-contain" />
+                      <img
+                        src={getCarImage(car, '29')}
+                        alt="car image"
+                        className="object-fit"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                      <img src={getCarImage(car, '33')} alt="car image" className="object-contain" />
+                      <img
+                        src={getCarImage(car, '33')}
+                        alt="car image"
+                        className="object-fit"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
-                      <img src={getCarImage(car, '13')} alt="car image" className="object-contain" />
+                      <img
+                        src={getCarImage(car, '13')}
+                        alt="car image"
+                        className="object-contain"
+                      />
                     </div>
                   </div>
                 </div>
@@ -71,8 +101,13 @@ export const CarDetails: React.FC<CarDetailsProps> = ({ car, handleCarDetailsMod
                   </h2>
                   <div className="mt-3 flex flex-wrap gap-4">
                     {Object.entries(car).map(([key, value]) => (
-                      <div className="flex justify-between gap-5 w-full text-right" key={key}>
-                        <h4 className="text-gray capitalize">{key.split('_').join(' ')}</h4>
+                      <div
+                        className="flex justify-between gap-5 w-full text-right"
+                        key={key}
+                      >
+                        <h4 className="text-gray capitalize">
+                          {key.split('_').join(' ')}
+                        </h4>
                         <p className="text-black-100 font-semibold">{value}</p>
                       </div>
                     ))}
@@ -84,5 +119,5 @@ export const CarDetails: React.FC<CarDetailsProps> = ({ car, handleCarDetailsMod
         </div>{' '}
       </Dialog>
     </Transition>
-  )
-}
+  );
+};

@@ -1,8 +1,8 @@
-import { Button } from '@/shared'
-import magnifyingGlassIcon from '@images/magnifying-glass.svg'
+import { Button } from '@/shared';
+import magnifyingGlassIcon from '@images/magnifying-glass.svg';
 
 interface SearchButtonProps {
-  overlayStyles: string
+  overlayStyles: string;
   //  handleClick: () => void;
 }
 
@@ -15,5 +15,5 @@ export const SearchButton = ({ overlayStyles }: SearchButtonProps) => {
       type="submit"
       classStyles={`-ml-3 z-10 ${overlayStyles && overlayStyles}`}
     />
-  )
-}
+  );
+};

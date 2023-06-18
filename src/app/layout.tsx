@@ -1,19 +1,26 @@
-import { Footer, Navbar } from '@/shared'
-import './globals.css'
+import { Footer, LoadingIcon, Navbar } from '@/shared';
+import { Suspense } from 'react';
+import './globals.css';
 
 export const metadata = {
   title: 'CarGo',
-  description: 'Cars app mockup',
-}
+  description: 'Cars app mockup'
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <Suspense fallback={<LoadingIcon />}>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </Suspense>
       </body>
     </html>
-  )
+  );
 }

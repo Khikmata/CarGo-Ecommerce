@@ -1,8 +1,18 @@
-import { CarCard } from '@/entities'
-import { ICar } from '@/shared/types'
-import { CarDataEmptyCheck } from './helpers/CarDataEmptyCheck'
+import { CarCard } from '@/entities';
+import { ShowMore } from '@/features';
+import { ICar } from '@/shared/types';
+import React from 'react';
+import { CarDataEmptyCheck } from './helpers/CarDataEmptyCheck';
 
-export const CarsCatalogueGrid = ({ carData }: { carData: ICar[] }) => {
+interface CarsCatalogueGridProps {
+  carData: ICar[];
+  children: React.ReactNode;
+}
+
+export const CarsCatalogueGrid = ({
+  carData,
+  children
+}: CarsCatalogueGridProps) => {
   return (
     <>
       {carData && !CarDataEmptyCheck(carData) ? (
@@ -12,6 +22,7 @@ export const CarsCatalogueGrid = ({ carData }: { carData: ICar[] }) => {
               <CarCard key={index} car={car} />
             ))}
           </div>
+          {children}
         </section>
       ) : (
         <div className="home__error-container">
@@ -19,5 +30,5 @@ export const CarsCatalogueGrid = ({ carData }: { carData: ICar[] }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
